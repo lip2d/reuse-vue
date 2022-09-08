@@ -1,24 +1,24 @@
 <template>
-  <body>
-
-<div class="container">
-    <div class="cobertura1"></div>
-    <div class="cobertura2"></div>
+  <div>
+      <div class="container"></div>
+        <div class="cobertura1">
+            <img src="../assets/images/logo1.png" class="img" alt="imagem"/>
+        </div>
+        <div class="cobertura2">
+            <form>
+                <h1>LOGIN</h1>
+                <input class="input" placeholder="E-mail" />
+                <br>
+                <input class="input" type="password" placeholder="Senha" />
+                <br> <br>
+                <a href="recuperacaosenha.html" class="recsenha">Esqueceu a senha?</a>
+                <br /> <br /> <br />
+                <a href="../home/home.html"><button class="entrar" type="button">Entrar</button></a>
+                <br> <br> <br>
+                <a href="register.html" class="cadastrar">CADASTRE-SE</a>
+            </form>
+        </div>
 </div>
-        <img src="../assets/images/logo1.png" class="img" alt="imagem">
-        <form class="form">
-            <h1>LOGIN</h1>
-            <input class="input" placeholder="E-mail" />
-            <br>
-            <input class="input" type="password" placeholder="Senha" />
-            <br> <br>
-            <a href="recuperacaosenha.html" class="recsenha">Esqueceu a senha?</a>
-            <br /> <br /> <br />
-            <a href="../home/home.html"><button class="entrar" type="button">Entrar</button></a>
-            <br> <br> <br>
-            <a href="register.html" class="cadastrar">CADASTRE-SE</a>
-        </form>
-</body>
 </template>
 
 <script>
@@ -33,6 +33,7 @@ export default {
 body {
     margin: 0;
     padding: 0;
+    max-width: 100vw;
 }
 
 .container {
@@ -44,27 +45,28 @@ body {
     width: 50%;
     height: 100%;
     position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cobertura2 {
-    background-color: #fff9e8;
-    width: 50%;
-    height: 100%;
-    position: fixed;
-    right: 0;
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    right: 8%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 25%;
 }
 
 .img {
-    position: fixed;
-    width: 604px;
-    height: 604px;
-    bottom: 28%;
-    left: 8%;
+    width: 60%;
+    height: 60%;
 }
 
 form {
-    top: 25%;
-    left: 65%;
     position: fixed;
     font-family: "Montserrat";
     color: #9E6942;
@@ -87,7 +89,7 @@ form {
     box-shadow: 0px 2px 5px#9E6942;
     color: #85904E;
     padding-left: 15px;
-
+    margin-left: 0;
 }
 
 .input1 {

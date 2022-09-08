@@ -1,10 +1,10 @@
 <template>
   <body>
-    <div class="container">
-        <div class="cobertura1"></div>
-        <div class="cobertura2"></div>
-    </div>
-            <img src="../assets/images/logo1.png" class="img" alt="imagem">
+    <div class="container"></div>
+        <div class="cobertura1">
+            <img src="../assets/images/logo1.png" class="img" alt="imagem"/>
+        </div>
+        <div class="cobertura2">
             <form class="form form1">
                 <h1>CADASTRAR</h1>
                 <input class="input1" placeholder="Nome" />
@@ -24,6 +24,7 @@
                 <br> <br> <br>
                 <a href="../home/home.html"><button class="cadastrar1" type="button">Cadastre-se</button></a>
             </form>
+    </div>           
 </body>
 </template>
 
@@ -69,32 +70,18 @@ body {
 }
 
 form {
-    top: 25%;
-    left: 65%;
-    position: fixed;
     font-family: "Montserrat";
     color: #9E6942;
     text-align: center;
 }
 
 .form1 {
-    margin-right: 205px;
+    width: 70%;
+    height: 70%;
+    margin-right: 300px;
+    margin-top: 150px;
 }
 
-.input {
-    background-color: #FFF9E8;
-    border: 1px solid #9E6942;
-    border-radius: 50px;
-    width: 360px;
-    height: 66px;
-    font-size: 24px;
-    margin-top: 34px;
-    font-family: "Montserrat";
-    box-shadow: 0px 2px 5px#9E6942;
-    color: #85904E;
-    padding-left: 15px;
-
-}
 
 .input1 {
     background-color: #FFF9E8;
@@ -108,6 +95,7 @@ form {
     box-shadow: 0px 2px 5px#9E6942;
     color: #85904E;
     padding-left: 15px;
+    margin-left: 0;
 }
 
 .eo2 {
@@ -116,19 +104,6 @@ form {
 
 .eo4 {
     width: 130px;
-}
-
-.entrar {
-    background-color: #bfc297;
-    border: 1px solid #85904E;
-    border-radius: 50px;
-    width: 173px;
-    height: 50px;
-    text-align: center;
-    font-family: "Montserrat";
-    font-size: 20px;
-    box-shadow: 0px 2px 5px#85904E;
-    cursor: pointer;
 }
 
 .cadastrar1 {
@@ -142,14 +117,6 @@ form {
     font-size: 20px;
     box-shadow: 0px 2px 5px#85904E;
     cursor: pointer;
-}
-
-.recsenha {
-    font-family: "Montserrat";
-    font-size: 24px;
-    color: #85904E;
-    padding-right: 25%;
-    text-decoration: none;
 }
 
 .cadastrar {

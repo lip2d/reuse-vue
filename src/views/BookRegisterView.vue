@@ -321,7 +321,6 @@ a {
     font-family: "Montserrat";
     box-shadow: 0px 2px 5px#9E6942;
     color: #85904E;
-    margin-left: 550px;
     margin-bottom: 30px;
     padding-left: 2%;
     font-size: 30px;
