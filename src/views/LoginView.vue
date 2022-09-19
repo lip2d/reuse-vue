@@ -7,23 +7,57 @@
         <div class="cobertura2">
             <form>
                 <h1>LOGIN</h1>
-                <input class="input" placeholder="E-mail" />
+                <input class="input" placeholder="E-mail" v-model="usuario.email" />
                 <br>
-                <input class="input" type="password" placeholder="Senha" />
+                <input class="input" type="password" placeholder="Senha" v-model="usuario.senha" />
                 <br> <br>
                 <a href="recuperacaosenha.html" class="recsenha">Esqueceu a senha?</a>
                 <br /> <br /> <br />
-                <a href="../home/home.html"><button class="entrar" type="button">Entrar</button></a>
+                <button class="entrar" type="button" @click="submitLogin">Entrar</button>
                 <br> <br> <br>
-                <a href="register.html" class="cadastrar">CADASTRE-SE</a>
+                <a href="register.html" class="cadastrar">{{ errorMessage }}</a>
             </form>
         </div>
 </div>
 </template>
 
 <script>
-export default {
+import { auth } from "../plugins/firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
+export default {
+    data() {
+        return {
+            usuario : {},
+            errorMessage: ""
+        }
+    },
+    methods: {
+        async submitLogin() {
+            try {
+                this.errorMessage = "";
+                await signInWithEmailAndPassword(auth, this.usuario.email, this.usuario.senha);
+                this.$router.push({ name: "home" });
+            } catch(err) {
+                const { code } = err;
+                this.tratarErro(code);
+            }
+        },
+        tratarErro(code) {
+            let message;
+
+            switch (code) {
+                case "auth/invalid-email":
+                    message = "Entre com um E-mail válido.";
+                    break
+                case "auth/wrong-password":
+                    message = "Senha inválida para este usuário."
+                    break
+            }
+
+            this.errorMessage = message;
+        }
+    }
 }
 </script>
 

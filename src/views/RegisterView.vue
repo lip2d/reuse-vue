@@ -7,30 +7,47 @@
         <div class="cobertura2">
             <form class="form form1">
                 <h1>CADASTRAR</h1>
-                <input class="input1" placeholder="Nome" />
-                <input class="input1" placeholder="Sobrenome" />
+                <!-- <input class="input1 eo2" placeholder="Nome Completo" /> -->
                 <br>
-                <input class="input1 eo2" placeholder="E-mail">
-                <input class="input1 eo2" type="password" placeholder="Senha">
+                <input class="input1 eo2" placeholder="E-mail" v-model="novoUsuario.email" />
+                <input class="input1 eo2" type="password" placeholder="Senha" v-model="novoUsuario.senha" />
                 <br>
-                <input class="input1" placeholder="Telefone">
-                <input class="input1" placeholder="CEP">
-                <br>
-                <input class="input1 eo4" placeholder="Dia">
-                <input class="input1 eo4" placeholder="Mês">
-                <input class="input1 eo4" placeholder="Ano">
-                <br>
-                <input class="input1 eo2" placeholder="Caixa Postal(opcional)">
                 <br> <br> <br>
-                <a href="../home/home.html"><button class="cadastrar1" type="button">Cadastre-se</button></a>
+                <button class="cadastrar1" type="button" @click="submitCreate">Cadastre-se</button>
             </form>
     </div>           
 </body>
 </template>
 
 <script>
-export default {
+import { auth, profileCollection } from "../plugins/firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { addDoc } from "firebase/firestore";
 
+export default {
+    data() {
+        return {
+            novoUsuario: {}
+        }
+    },
+    methods: {
+        async submitCreate() {
+            try {
+                await createUserWithEmailAndPassword(auth, this.novoUsuario.email, this.novoUsuario.senha);
+                this.createProfile();
+                this.$router.push({ name: "home" });
+            } catch(err) {
+                console.error(err);
+            }
+        },
+        async createProfile(){
+            const uid = auth.currentUser.uid;
+
+            await addDoc(profileCollection, {
+                owner: uid
+            });
+        }
+    }
 }
 </script>
 
