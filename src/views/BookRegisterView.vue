@@ -30,10 +30,11 @@
             <div>
                 <div class="imguser3">
                     <div class="aaa2">
-                        <img class="ico2" src="ico2.png" alt="">
+                        <img class="ico2" :src="imagem" alt="">
                     </div>
                     <input type="file" name="arquivos" class="oo2" accept="image/png, image/jpeg" multiple />
                     <article class="ttt">Tamanho da imagem: 1MB <br> Extensão de arquivo: JPEG, PNG
+                        <input v-model="imagem" />
                     </article>
                 </div>
             </div>
@@ -51,15 +52,15 @@
 
         </div>
         <form class="form">
-            <input class="input1" placeholder="" />
+            <input v-model="nomeLivro" class="input1"/>
             <br>
-            <input class="input1" />
+            <input v-model="autor" class="input1" />
             <br>
-            <input class="input1" />
+            <input v-model="editora" class="input1" />
             <br>
-            <input class="input1 ff2" />
+            <input v-model="sinopse" class="input1 ff2" />
             <br>
-            <input class="input1 ff2" />
+            <input v-model="descricao" class="input1 ff2" />
         </form>
         <ul class="dados">
             <li class="dado1">Nome do Livro:</li>
@@ -67,15 +68,42 @@
             <li class="dado1">Editora:</li>
             <li class="dado1 ff1">Sinopse:</li>
             <li class="dado1 ff1">Descrição:</li>
-            <li class="salvar">Salvar</li>
+            <li class="salvar" @click="adicionarlivro">Salvar</li>
         </ul>
 
     </body>
 </template>
 
 <script>
-export default {
 
+import * as fb from "@/plugins/firebase";
+    
+export default {
+    data() {
+        return {
+            uid: "",
+            nomeLivro: "",
+            autor: "",
+            editora: "",
+            sinopse: "",
+            descricao: "",
+            imagem: ""
+        }
+    }, 
+    methods:{
+        async adicionarlivro() {
+            this.uid = fb.auth.currentUser.uid;
+            await fb.tasksCollection.add({
+                uid: this.uid,
+                nomeLivro: this.nomeLivro,
+                autor: this.autor,
+                editora: this.editora,
+                sinopse: this.sinopse,
+                descricao: this.descricao,
+                imagem: this.imagem
+            })
+        },
+    }
 }
 </script>
 

@@ -2,7 +2,6 @@
   <body>
     <div class="container">
         <nav class="header">
-            <img src="../assets/images/logo.png" class="img" alt="imagem">
 
             <input class="pesquisa" placeholder="Busque aqui" />
             <ul class="eu1">
@@ -11,14 +10,12 @@
                 <li>ATENDIMENTO</li>
             </ul>
             <div class="perfil">
-                <img src="../assets/images/user-icon.png" class="usericon" alt="user">
             </div>
         </nav>
     </div>
 
     <div class="profile">
         <div class="imguser">
-            <img class="ico" src="ico.png" alt="">
         </div>
         <ul class="au1">
             <li class="au2">Meu Perfil</li>
@@ -30,7 +27,6 @@
         <div>
             <div class="imguser3">
                 <div class="aaa2">
-                    <img class="ico2" src="ico2.png" alt="">
                 </div>
                 <input type="file" name="arquivos" class="oo2" accept="image/png, image/jpeg" multiple />
                 <article class="ttt">Tamanho da imagem: 1MB <br> Extensão de arquivo: JPEG, PNG
@@ -38,12 +34,12 @@
             </div>
         </div>
         <ul class="lo1">
-            <li class="lo2">Nome</li>
+            <li class="lo2">{{nome}}</li>
             <li class="lo3">Minha Conta</li>
             <li class="lo4 dd1">Dados</li>
             <li class="lo5"><a href="recsenha.html">Trocar Senha</a></li>
             <li class="lo6">Livros</li>
-            <li class="lo7"><a href="bookregister.html">Cadastrar</a></li>
+            <li class="lo7"><a @click="toBookRegister">Cadastrar</a></li>
             <li class="lo8">Favoritos</li>
             <li class="lo9">Ver Trocas</li>
             <li class="lo10"><a href="../login/login.html">Sair</a></li>
@@ -95,6 +91,7 @@ export default {
     },
 
 async mounted() {
+    
     this.uid = fb.auth.currentUser.uid;
     const userProfile = await fb.profileCollection
         .where("uid", "==", this.uid)
@@ -109,7 +106,8 @@ async mounted() {
         this.nascimento = perfil.data().nascimento;
         this.endereço = perfil.data().endereço;
         this.cep = perfil.data().cep;
-    }
+    } console.log(this.nome)
+    console.log(this.uid)
 
 },
 
@@ -137,6 +135,9 @@ methods: {
                 cep: this.cep,
             })
         }
+        },
+        toBookRegister() {
+            this.$router.push({ path: "/BookRegister" })
         }
     }
 };
