@@ -19,8 +19,12 @@
 </template>
 
 <script>
-export default {
+import * as fb from "@/plugins/firebase.js"
 
+export default {
+    mounted(){
+        console.log(fb.auth.currentUser.uid)
+    }
 }
 </script>
 

@@ -10,7 +10,7 @@
                 <li>ATENDIMENTO</li>
             </ul>
             <div class="perfil">
-                <img src="../assets/images/user-icon.png" class="usericon" alt="user">
+                <img src="../assets/images/user-icon.png" class="usericon" alt="user" @click="toProfile">
             </div>
         </nav>
     </div>
@@ -18,7 +18,11 @@
 
 <script>
 export default {
-
+    methods: {
+        toProfile() {
+            this.$router.push({ path: "/profile" })
+        }
+    }
 }
 </script>
 

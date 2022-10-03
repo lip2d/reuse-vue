@@ -7,58 +7,70 @@
         <div class="cobertura2">
             <form>
                 <h1>LOGIN</h1>
-                <input class="input" placeholder="E-mail" v-model="usuario.email" />
+                <input class="input" placeholder="E-mail" v-model="user.email" />
                 <br>
-                <input class="input" type="password" placeholder="Senha" v-model="usuario.senha" />
+                <input class="input" type="password" placeholder="Senha" v-model="user.password" />
                 <br> <br>
                 <a href="recuperacaosenha.html" class="recsenha">Esqueceu a senha?</a>
                 <br /> <br /> <br />
-                <button class="entrar" type="button" @click="submitLogin">Entrar</button>
+                <button class="entrar" type="button" @click="login">Entrar</button>
                 <br> <br> <br>
-                <a href="register.html" class="cadastrar">{{ errorMessage }}</a>
+                <a href="register.html" class="cadastrar">{{ errorLogin }}</a>
             </form>
         </div>
 </div>
 </template>
 
 <script>
-import { auth } from "../plugins/firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
-
+import * as fb from "@/plugins/firebase";
 export default {
-    data() {
-        return {
-            usuario : {},
-            errorMessage: ""
-        }
+  data() {
+    return {
+      user: {},
+      show: false,
+      errorLogin: false,
+      novaConta: false,
+    };
+  },
+  methods: {
+    reset() {
+      this.user = {};
     },
-    methods: {
-        async submitLogin() {
-            try {
-                this.errorMessage = "";
-                await signInWithEmailAndPassword(auth, this.usuario.email, this.usuario.senha);
-                this.$router.push({ name: "home" });
-            } catch(err) {
-                const { code } = err;
-                this.tratarErro(code);
-            }
-        },
-        tratarErro(code) {
-            let message;
-
-            switch (code) {
-                case "auth/invalid-email":
-                    message = "Entre com um E-mail válido.";
-                    break
-                case "auth/wrong-password":
-                    message = "Senha inválida para este usuário."
-                    break
-            }
-
-            this.errorMessage = message;
+    async login() {
+      try {
+        await fb.auth.signInWithEmailAndPassword(
+          this.user.email,
+          this.user.password
+        );
+        this.$router.push({ name: "home" });
+      } catch (error) {
+        const errorCode = error.code;
+        switch (errorCode) {
+          case "auth/wrong-password":
+            this.errorLogin = true;
+            break;
+          case "auth/invalid-email":
+            this.errorLogin = true;
+            break;
+          case "auth/user-not-found":
+            this.novaConta = true;
+            break;
+          default:
+            this.errorLogin = true;
+            break;
         }
-    }
-}
+      }
+    },
+    async criarNovaConta() {
+      this.novaConta = true;
+      await fb.auth.createUserWithEmailAndPassword(
+        this.user.email,
+        this.user.password
+      );
+      this.login();
+    },
+  },
+};
 </script>
 
 <style>

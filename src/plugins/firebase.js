@@ -1,7 +1,8 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-import { getFirestore, collection } from "firebase/firestore";
+
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+import "firebase/compat/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyB4uwKtt-skU5n9UOLDplGUKTanx8tFAQI",
@@ -12,13 +13,13 @@ const firebaseConfig = {
     appId: "1:129800170793:web:a1cea062afd1d6fbcb9b38"
   };
 
-const app = initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 
-const auth = getAuth(app);
-const db = getFirestore(app);
+const db = firebase.firestore();
+const auth = firebase.auth();
 
-const profileCollection = collection(db, "profiles");
+const profileCollection = db.collection("profile");
+const tasksCollection = db.collection("livros");
 
-export {
-    app, auth, db, profileCollection
-}
+
+export { db, auth, profileCollection, tasksCollection };

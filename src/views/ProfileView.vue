@@ -51,35 +51,95 @@
 
     </div>
     <form class="form">
-        <input class="input" placeholder="" />
+        <input class="input" v-model="nome" />
         <br>
-        <input class="input" />
+        <input class="input" v-model="email" />
         <br>
-        <input class="input" />
+        <input class="input" v-model="telefone"  />
         <br>
-        <input class="input" />
+        <input class="input" v-model="nascimento" />
         <br>
-        <input class="input" />
+        <input class="input" v-model="endereço" />
         <br>
-        <input class="input" />
+        <input class="input" v-model="cep" />
+        <br>
     </form>
     <ul class="dados">
         <li class="dado1">Nome:</li>
         <li class="dado1">E-mail:</li>
         <li class="dado1">Telefone:</li>
         <li class="dado1">Nascimento:</li>
+        <li class="dado1">Endereço:</li>
         <li class="dado1">CEP:</li>
-        <li class="dado1">Caixa Postal:</li>
-        <li class="salvar">Salvar</li>
+        <li class="salvar" @click="salvarPerfil" >Salvar</li>
     </ul>
 
 </body>
 </template>
 
 <script>
-export default {
+import * as fb from "@/plugins/firebase";
 
-}
+export default {
+    data() {
+        return {
+            nome: "",
+            email: "",
+            telefone: "",
+            nascimento: "",
+            endereço: "",
+            cep: "",
+            uid: "",
+            temPerfil: false
+        }
+    },
+
+async mounted() {
+    this.uid = fb.auth.currentUser.uid;
+    const userProfile = await fb.profileCollection
+        .where("uid", "==", this.uid)
+        .get();
+    if (userProfile.docs.length > 0) {
+        this.temPerfil = true;
+        const perfil = userProfile.docs[0];
+        this.profileId = perfil.id;
+        this.nome = perfil.data().nome;
+        this.email = perfil.data().email;
+        this.telefone = perfil.data().telefone;
+        this.nascimento = perfil.data().nascimento;
+        this.endereço = perfil.data().endereço;
+        this.cep = perfil.data().cep;
+    }
+
+},
+
+methods: {
+    async salvarPerfil() {
+        if(this.temPerfil) {
+            await fb.profileCollection.doc(this.profileId).update({
+                nome: this.nome,
+                email: this.email,
+                telefone: this.telefone,
+                nascimento: this.nascimento,
+                endereço: this.endereço,
+                cep: this.cep,
+
+            });
+        }
+        else {
+            await fb.profileCollection.add({
+                uid: this.uid,
+                nome: this.nome,
+                email: this.email,
+                telefone: this.telefone,
+                nascimento: this.nascimento,
+                endereço: this.endereço,
+                cep: this.cep,
+            })
+        }
+        }
+    }
+};
 </script>
 
 <style>
