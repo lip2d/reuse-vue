@@ -1,31 +1,51 @@
 <template>
-  <body>
-    <div class="eo2">
-        <div class="e1"></div>
-        <div class="e2">
-            <div class="txt">NOVIDADES
-            </div>
+    <div class="tudo">
+        <div  class="texto-catalogo"></div>
+        <div class="container-livros">
+            <div class="livros"></div>
+            <div class="livros"></div>
+            <div class="livros"></div>
+            <div class="livros"></div>
+            <div class="livros"></div>
         </div>
     </div>
-
-    <div class="eo2">
-        <div class="e3"></div>
-        <div class="e4">
-            <div class="txt">CLÁSSICOS
-            </div>
-        </div>
-    </div>
-</body>
 </template>
 
 <script>
 import * as fb from "@/plugins/firebase.js"
 
 export default {
+    data() {
+        return {
+            livros: []
+        }
+    },
     mounted(){
+        this.getLivros()
         console.log(fb.auth.currentUser.uid)
-    }
+    },
+    methods: {
+        async getLivros () {
+            const logtasks = await fb.tasksCollection.get()
+            for(
+                const doc of logtasks.docs
+            )
+            this.livros.push({
+                id: doc.id,
+                nomeLivro: doc.data().nomeLivro,
+                autor: doc.data().autor,
+                editora: doc.data().editora,
+                sinopse: doc.data().sinopse,
+                descricao: doc.data().descricao,
+                imagem: doc.data().imagem,
+            })
+            console.log(this.livros)
+        },
+    },
 }
+
+
+
 </script>
 
 <style>
@@ -103,7 +123,6 @@ body {
     width: 40px;
     height: 40px;
     cursor: pointer;
-    margin-top: 32px;
     margin-right: 40px;
 }
 
@@ -171,5 +190,43 @@ body {
     position: absolute;
 
 }
-
+.tudo {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    overflow: hidden;
+}
+.texto-catalogo {
+    margin-top: 150px;
+    margin-left: 20px;
+    height: 33px;
+    width: 100%;
+    background-color: #85904E;
+    position: relative;
+    right: 0;
+}
+.texto-catalogo::before {
+    content: 'Livros:';
+    background-color: #FFF9E8;
+    border-radius: 0 10px 10px 0;
+    font-size: 30px;
+    padding-right: 2%;
+}
+.container-livros {
+    height: 500px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow-x: scroll;
+}
+.livros {
+    margin: 0 50px;
+    min-width: 350px;
+    min-height: 450px;
+    background-color: #393f1b;
+}
 </style>

@@ -28,9 +28,6 @@
             <div class="imguser3">
                 <div class="aaa2">
                 </div>
-                <input type="file" name="arquivos" class="oo2" accept="image/png, image/jpeg" multiple />
-                <article class="ttt">Tamanho da imagem: 1MB <br> Extensão de arquivo: JPEG, PNG
-                </article>
             </div>
         </div>
         <ul class="lo1">
@@ -150,6 +147,7 @@ methods: {
     margin: 0;
     padding: 0;
     border: 0;
+    font-size: 25px;
 }
 
 body {
@@ -168,6 +166,7 @@ body {
     background-color: #bfc297;
     position: fixed;
     display: flex;
+    z-index: 1;
 }
 
 .img {
@@ -240,7 +239,7 @@ a {
 
 .imguser {
     margin-top: 9%;
-    margin-left: 5%;
+    margin-left: 4%;
     border-radius: 100%;
     width: 200px;
     height: 200px;
@@ -431,6 +430,9 @@ a {
     margin-left: 605px;
     margin-top: 30px;
     color: #3A2718;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 

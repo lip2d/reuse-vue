@@ -247,6 +247,7 @@ a {
     margin-left: 5%;
     font-weight: bold;
     font-size: 30px;
+    cursor: pointer;
 }
 
 .lo2 {
@@ -254,11 +255,13 @@ a {
     font-weight: bold;
     position: absolute;
     list-style: none;
+    cursor: pointer;
 }
 
 .lo3 {
     margin-top: 5%;
     margin-left: 0;
+    cursor: pointer;
     position: absolute;
 }
 
@@ -266,6 +269,7 @@ a {
     margin-left: 2.5%;
     position: absolute;
     margin-top: 9%;
+    cursor: pointer;
     list-style: none;
 }
 
@@ -273,17 +277,20 @@ a {
     margin-top: 12%;
     margin-left: 0;
     position: absolute;
+    cursor: pointer;
     list-style: none;
 }
 
 .lo6 {
     margin-top: 17%;
     position: absolute;
+    cursor: pointer;
 }
 
 .lo7 {
     margin-top: 21%;
     margin-left: 1.3%;
+    cursor: pointer;
     position: absolute;
     list-style: none;
 }
@@ -291,11 +298,13 @@ a {
 .lo8 {
     margin-top: 24%;
     margin-left: 1.5%;
+    cursor: pointer;
     position: absolute;
     list-style: none;
 }
 
 .lo9 {
+    cursor: pointer;
     margin-top: 27%;
     margin-left: 1%;
     position: absolute;
@@ -304,6 +313,7 @@ a {
 
 .lo10 {
     margin-top: 30.5%;
+    cursor: pointer;
     margin-left: 3.4%;
     position: absolute;
     list-style: none;
