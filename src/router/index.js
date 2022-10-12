@@ -7,56 +7,61 @@ import BlankLayout from '../layouts/BlankLayout.vue'
 Vue.use(VueRouter)
 
 const routes = [{
-    path: "",
-    component: DefaultLayout,
-    children: [{
-        path: '/',
-        name: 'home',
-        component: HomeView
-      },
-      {
-        path: '/home',
-        name: 'home',
-        component: () => import('../views/HomeView.vue')
-      },
-      {
-        path: '/profile',
-        name: 'profile',
-        component: () => import('../views/ProfileView.vue')
-      },
-      {
-        path: '/changepassword',
-        name: 'changepassword',
-        component: () => import('../views/ChangePasswordView.vue')
-      },
-      {
-        path: '/bookregister',
-        name: 'bookregister',
-        component: () => import('../views/BookRegisterView.vue')
-      },
+  path: "",
+  component: DefaultLayout,
+  children: [{
+    path: '/',
+    name: 'home',
+    component: HomeView
+  },
+  {
+    path: '/home',
+    name: 'home',
+    component: () => import('../views/HomeView.vue')
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: () => import('../views/ProfileView.vue')
+  },
+  {
+    path: '/changepassword',
+    name: 'changepassword',
+    component: () => import('../views/ChangePasswordView.vue')
+  },
+  {
+    path: '/bookregister',
+    name: 'bookregister',
+    component: () => import('../views/BookRegisterView.vue')
+  },
+  {
+    path: '/book',
+    name: 'book',
+    component: () => import('../views/Books.vue')
+  },
 
-    ],
-  },
-  {
-    path: "",
-    component: BlankLayout,
-    children: [{
-      path: "/login",
-      name: "login",
-      component: () =>
-        import("../views/LoginView.vue"),
-    }, ],
-  },
-  {
-    path: "",
-    component: BlankLayout,
-    children: [{
-      path: "/register",
-      name: "register",
-      component: () =>
-        import("../views/RegisterView.vue"),
-    }, ],
-  },
+  ],
+},
+{
+  path: "",
+  component: BlankLayout,
+  children: [{
+    path: "/login",
+    name: "login",
+    component: () =>
+      import("../views/LoginView.vue"),
+  },],
+},
+{
+  path: "",
+  component: BlankLayout,
+  children: [{
+    path: "/register",
+    name: "register",
+    component: () =>
+      import("../views/RegisterView.vue"),
+  },],
+},
 ]
 
 const router = new VueRouter({
