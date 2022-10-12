@@ -18,7 +18,7 @@
         <li class="lo5 dd1" @click="toChangePassword">Trocar Senha</li>
         <li class="lo6">Livros</li>
         <li class="lo7" @click="toBookRegister">Cadastrar</li>
-        <li class="lo8">Meus Livros</li>
+        <li class="lo8" @click="toMyBooks">Meus Livros</li>
         <li class="lo9">Favoritos</li>
         <li class="lo10" @click="toLogin">Sair</li>
       </ul>
@@ -41,6 +41,8 @@
 </template>
 
 <script>
+import { auth } from "../plugins/firebase";
+
 export default {
   methods: {
     toBookRegister() {
@@ -52,11 +54,15 @@ export default {
     toHomePage() {
       this.$router.push({ path: "/home" });
     },
-    toLogin() {
+    async toLogin() {
+      await auth.signOut();
       this.$router.push({ path: "/login" });
     },
     toProfile() {
       this.$router.push({ path: "/profile" });
+    },
+    toMyBooks() {
+      this.$router.push({ name: "mybooks" });
     },
   },
 };

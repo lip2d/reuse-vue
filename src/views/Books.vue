@@ -1,44 +1,34 @@
 <template>
   <div>
     <div class="livrosombra"></div>
-    <div class="livro"></div>
+    <div class="livro">
+      <img :src="product.imagem" alt="" style="width: 100%; height: 100%" />
+    </div>
     <article>
       <ul class="descLivro">
-        <li class="itemDescLivro">Nome:</li>
-        <li class="itemDescLivro">Autor:</li>
-        <li class="itemDescLivro">Editora:</li>
-        <li class="itemDescLivro">Número de páginas:</li>
+        <li class="itemDescLivro">Nome: {{ product.nomeLivro }}</li>
+        <li class="itemDescLivro">Autor: {{ product.autor }}</li>
+        <li class="itemDescLivro">Editora: {{ product.editora }}</li>
+        <!-- <li class="itemDescLivro">Número de páginas:</li> -->
 
         <button class="btnChat">Chamar Dono</button>
       </ul>
     </article>
     <div class="line"></div>
     <aside class="resumoLivro">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-      do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-      do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.
+      {{ product.descricao }}
     </aside>
   </div>
 </template>
 
 <script>
-export default {};
+import { mapState } from "vuex";
+
+export default {
+  computed: {
+    ...mapState(["product"]),
+  },
+};
 </script>
 
 <style>

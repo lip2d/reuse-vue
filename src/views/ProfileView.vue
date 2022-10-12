@@ -21,7 +21,7 @@
         <li class="lo5"><a @click="toChangePassword">Trocar Senha</a></li>
         <li class="lo6">Livros</li>
         <li class="lo7"><a @click="toBookRegister">Cadastrar</a></li>
-        <li class="lo8">Meus Livros</li>
+        <li class="lo8" @click="toMyBooks">Meus Livros</li>
         <li class="lo9">Favoritos</li>
         <li class="lo10" @click="toLogin">Sair</li>
       </ul>
@@ -121,11 +121,15 @@ export default {
     toHomePage() {
       this.$router.push({ path: "/home" });
     },
-    toLogin() {
+    async toLogin() {
+      await fb.auth.signOut();
       this.$router.push({ path: "/login" });
     },
     toProfile() {
       this.$router.push({ path: "/profile" });
+    },
+    toMyBooks() {
+      this.$router.push({ name: "mybooks" });
     },
   },
 };
@@ -258,7 +262,7 @@ body {
   box-shadow: 0px 2px 5px#85904E;
   cursor: pointer;
   margin-left: 605px;
-  margin-top: 10px;
+  margin-top: 175px;
   color: #3a2718;
   display: flex;
   align-items: center;
