@@ -81,82 +81,6 @@ body {
   background-color: #fdf7e6;
 }
 
-.container {
-  margin: 0;
-  padding: 0;
-  background-color: #fdf7e6;
-}
-
-.header {
-  width: 100%;
-  height: 110px;
-  background-color: #bfc297;
-  position: fixed;
-  display: flex;
-}
-
-.img {
-  width: 100px;
-  height: 85px;
-  cursor: pointer;
-  padding-top: 12px;
-  padding-left: 13px;
-}
-
-a {
-  text-decoration: none;
-  color: #3a2718;
-}
-
-.pesquisa {
-  background-color: #fff9e8;
-  border: 1px solid #9e6942;
-  border-radius: 50px;
-  width: 65%;
-  height: 59px;
-  font-size: 24px;
-  font-family: "Montserrat";
-  box-shadow: 0px 2px 5px#9E6942;
-  color: #393f1b;
-  padding-left: 15px;
-  margin-top: 23px;
-  margin-left: 60px;
-}
-
-.bt1 {
-  padding-left: 10%;
-}
-
-.eu1 {
-  display: flex;
-  list-style: none;
-  font-family: "Montserrat";
-  font-size: 26px;
-  color: #fff9e8;
-  cursor: pointer;
-  padding: 40px 100px 38px 150px;
-  font-weight: bold;
-}
-
-.li2 {
-  padding-left: 70px;
-  padding-right: 70px;
-}
-
-.usericon {
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  padding-top: 32px;
-  padding-right: 40px;
-}
-
-.wall {
-  display: flex;
-  font-family: "Montserrat";
-  justify-content: center;
-}
-
 .profile {
   position: relative;
 }
@@ -230,19 +154,6 @@ a {
   position: absolute;
 }
 
-.input {
-  background-color: #fff9e8;
-  border: 1px solid #9e6942;
-  border-radius: 50px;
-  width: 500px;
-  height: 53px;
-  font-family: "Montserrat";
-  box-shadow: 0px 2px 5px#9E6942;
-  color: #85904e;
-  margin-bottom: 30px;
-  padding-left: 2%;
-  font-size: 30px;
-}
 
 .input1 {
   background-color: #fff9e8;
@@ -285,67 +196,4 @@ a {
   color: #3a2718;
 }
 
-.imguser3 {
-  width: 200px;
-  height: 200px;
-  position: absolute;
-  margin-top: 100px;
-  margin-left: 1450px;
-}
-
-.oo1 {
-  background-color: #bfc297;
-  background-color: #bfc297;
-  border: 1px solid #85904e;
-  border-radius: 5px;
-  width: 360px;
-  height: 80px;
-  text-align: center;
-  box-shadow: 0px 2px 5px#85904E;
-  cursor: pointer;
-  margin-top: 100px;
-  font-size: 40px;
-  font-family: Montserrat;
-}
-
-.oo2 {
-  cursor: pointer;
-  margin-top: 100px;
-  font-size: 40px;
-  font-family: Montserrat;
-  width: 340px;
-}
-
-.ico1 {
-  width: 120px;
-  height: 120px;
-  margin-top: 35px;
-  margin-left: 40px;
-}
-
-.ico2 {
-  width: 120px;
-  height: 120px;
-  margin-top: 35px;
-  margin-left: 105px;
-}
-
-.ttt {
-  font-size: 32px;
-  font-family: Montserrat;
-  margin-top: 100px;
-  width: 360px;
-}
-
-.dd1 {
-  color: #d16014;
-}
-
-.ff1 {
-  margin-top: 26px;
-}
-
-.ff2 {
-  height: 100px;
-}
 </style>

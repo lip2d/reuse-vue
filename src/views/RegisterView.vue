@@ -11,6 +11,9 @@
                 <br>
                 <input class="input1 eo2" placeholder="E-mail" v-model="novoUsuario.email" />
                 <input class="input1 eo2" type="password" placeholder="Senha" v-model="novoUsuario.senha" />
+                <input class="input1 eo2" placeholder="Idade" v-model="novoUsuario.idade"/>
+                <br>
+                <span>{{ errorMessage }}</span>
                 <br>
                 <br> <br> <br>
                 <button class="cadastrar1" type="button" @click="submitCreate">Cadastre-se</button>
@@ -27,17 +30,23 @@ import { addDoc } from "firebase/firestore";
 export default {
     data() {
         return {
-            novoUsuario: {}
+            novoUsuario: {},
+            errorMessage: "",
         }
     },
     methods: {
         async submitCreate() {
-            try {
-                await createUserWithEmailAndPassword(auth, this.novoUsuario.email, this.novoUsuario.senha);
-                this.createProfile();
-                this.$router.push({ name: "home" });
-            } catch(err) {
-                console.error(err);
+            if (!(this.novoUsuario.idade < 16)) {
+                this.errorMessage = ""
+                try {
+                    await createUserWithEmailAndPassword(auth, this.novoUsuario.email, this.novoUsuario.senha);
+                    this.createProfile();
+                    this.$router.push({ name: "home" });
+                } catch(err) {
+                    console.error(err);
+                }
+            } else {
+                this.errorMessage = "É necessário ter mais de 16 anos para criar uma conta!"
             }
         },
         async createProfile(){

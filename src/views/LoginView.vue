@@ -15,7 +15,7 @@
                 <br /> <br /> <br />
                 <button class="entrar" type="button" @click="login">Entrar</button>
                 <br> <br> <br>
-                <a href="register.html" class="cadastrar">{{ errorLogin }}</a>
+                <div @click="toRegisterPage">Cadastrar</div>
             </form>
         </div>
 </div>
@@ -69,8 +69,12 @@ export default {
       );
       this.login();
     },
+    toRegisterPage() {
+        this.$router.push({ path: "/register" });
+      },
   },
 };
+
 </script>
 
 <style>
@@ -108,8 +112,8 @@ body {
 }
 
 .img {
-    width: 60%;
-    height: 60%;
+    width: 220px;
+    height: 80px;
 }
 
 form {

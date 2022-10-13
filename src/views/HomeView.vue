@@ -1,6 +1,7 @@
 <template>
   <div class="tudo">
     <div class="texto-catalogo"></div>
+    <div class="box-scroll">
     <div class="container-livros">
       <div
         class="livros"
@@ -15,6 +16,7 @@
         />
         <span class="nome-livro">{{ livro.nomeLivro }}</span>
       </div>
+    </div>
     </div>
   </div>
 </template>
@@ -43,9 +45,10 @@ export default {
           nomeLivro: doc.data().nomeLivro,
           autor: doc.data().autor,
           editora: doc.data().editora,
-          sinopse: doc.data().sinopse,
+          numpag: doc.data().numpag,
           descricao: doc.data().descricao,
           imagem: doc.data().imagem,
+          condicao: doc.data().condicao,
         });
       console.log(this.livros);
     },
@@ -68,7 +71,38 @@ export default {
   padding: 0;
   border: 0;
 }
-
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #9E6942;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #85904e;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #393f1b;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+  background: transparent
+}
+::-webkit-scrollbar-track:active {
+  background: transparent
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
 body {
   background-color: #fdf7e6;
 }
@@ -84,6 +118,7 @@ body {
   background-color: #bfc297;
   position: fixed;
   display: flex;
+  z-index: 1;
 }
 
 .img {
@@ -219,15 +254,21 @@ body {
   font-size: 30px;
   padding-right: 2%;
 }
+.box-scroll {
+  height: 700px;
+  position: absolute;
+  overflow-x: scroll;
+  margin-top: 15%;
+}
+.box-scroll::-webkit-scrollbar {
+  display: none;
+}
 .container-livros {
   position: relative;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: flex-start;
-  overflow-x: scroll;
-  height: 900px;
-  min-width: 100vw;
 }
 
 .livros {

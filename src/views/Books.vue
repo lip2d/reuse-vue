@@ -9,7 +9,8 @@
         <li class="itemDescLivro">Nome: {{ product.nomeLivro }}</li>
         <li class="itemDescLivro">Autor: {{ product.autor }}</li>
         <li class="itemDescLivro">Editora: {{ product.editora }}</li>
-        <!-- <li class="itemDescLivro">Número de páginas:</li> -->
+        <li class="itemDescLivro">Número de páginas: {{ product.numpag }}</li>
+        <li class="itemDescLivro">Condição Livro: {{ product.condicao }}</li>
 
         <button class="btnChat">Chamar Dono</button>
       </ul>
@@ -65,7 +66,7 @@ export default {
   font-size: 40px;
   font-family: "Montserrat";
   list-style: none;
-  margin-top: -190px;
+  margin-top: -220px;
 }
 
 .itemDescLivro {
