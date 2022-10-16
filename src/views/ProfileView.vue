@@ -1,18 +1,16 @@
 <template>
   <body>
-    <div class="profile">
-      <div class="imguser"></div>
-      <ul class="au1">
-        <li class="au2">Meu Perfil</li>
-        <li class="au3">Gerenciar e proteger sua conta</li>
-        <div class="linha1"></div>
-        <div class="linha2"></div>
-        <div class="linha3"></div>
+    <div class="profileData">
+      <div class="imguserData"></div>
+      <ul class="au1Data">
+        <li class="au2Data">Meu Perfil</li>
+        <li class="au3Data">Gerenciar e proteger sua conta</li>
+        <div class="linha1Data"></div>
+        <div class="linha2Data"></div>
+        <div class="linha3Data"></div>
       </ul>
       <div>
-        <div class="imguser3">
-          <div class="aaa2"></div>
-        </div>
+        <div class="imguser3Data"></div>
       </div>
       <ul class="lo1">
         <li class="lo2">{{ nome }}</li>
@@ -26,28 +24,28 @@
         <li class="lo10" @click="toLogin">Sair</li>
       </ul>
     </div>
-    <form class="form">
-      <input class="input" v-model="nome" />
+    <form class="formData">
+      <input class="inputData" v-model="nome" />
       <br />
-      <input class="input" v-model="email" />
+      <input class="inputData" v-model="email" />
       <br />
-      <input class="input" v-model="telefone" />
+      <input class="inputData" v-model="telefone" />
       <br />
-      <input class="input" v-model="nascimento" />
+      <input class="inputData" v-model="nascimento" />
       <br />
-      <input class="input" v-model="endereço" />
+      <input class="inputData" v-model="endereço" />
       <br />
-      <input class="input" v-model="cep" />
+      <input class="inputData" v-model="cep" />
       <br />
     </form>
-    <ul class="dados">
-      <li class="dado1">Nome:</li>
-      <li class="dado1">E-mail:</li>
-      <li class="dado1">Telefone:</li>
-      <li class="dado1">Nascimento:</li>
-      <li class="dado1">Endereço:</li>
-      <li class="dado1">CEP:</li>
-      <li class="salvar" @click="salvarPerfil">Salvar</li>
+    <ul class="dadosData">
+      <li class="dado1Data">Nome:</li>
+      <li class="dado1Data">E-mail:</li>
+      <li class="dado1Data">Telefone:</li>
+      <li class="dado1Data">Nascimento:</li>
+      <li class="dado1Data">Endereço:</li>
+      <li class="dado1Data">CEP:</li>
+      <li class="salvarData" @click="salvarPerfil">Salvar</li>
     </ul>
   </body>
 </template>
@@ -149,11 +147,11 @@ body {
   background-color: #fdf7e6;
 }
 
-.profile {
+.profileData {
   position: relative;
 }
 
-.imguser {
+.imguserData {
   margin-top: 9%;
   margin-left: 4%;
   border-radius: 100%;
@@ -163,7 +161,7 @@ body {
   position: absolute;
 }
 
-.au1 {
+.au1Data {
   font-family: Montserrat;
   padding-top: 11%;
   padding-left: 20%;
@@ -171,20 +169,20 @@ body {
   color: #3a2718;
 }
 
-.au2 {
+.au2Data {
   font-size: 45px;
   color: #3a2718;
   font-weight: bold;
 }
 
-.au3 {
+.au3Data {
   font-size: 40px;
   padding-top: 2%;
   color: #3a2718;
   font-weight: bold;
 }
 
-.lo1 {
+.lo1Data {
   font-family: Montserrat;
   color: #3a2718;
   margin-top: 2%;
@@ -193,7 +191,7 @@ body {
   font-size: 30px;
 }
 
-.linha1 {
+.linha1Data {
   width: 77%;
   height: 1px;
   background-color: #85904e;
@@ -201,7 +199,7 @@ body {
   position: absolute;
 }
 
-.linha2 {
+.linha2Data {
   width: 1px;
   height: 620px;
   background-color: #85904e;
@@ -209,7 +207,7 @@ body {
   position: absolute;
 }
 
-.linha3 {
+.linha3Data {
   width: 1px;
   height: 620px;
   background-color: #85904e;
@@ -218,13 +216,13 @@ body {
   margin-left: 950px;
 }
 
-.form {
+.formData {
   margin-left: 200px;
   margin-top: 50px;
   position: absolute;
 }
 
-.input {
+.inputData {
   background-color: #fff9e8;
   border: 1px solid #9e6942;
   border-radius: 50px;
@@ -239,7 +237,7 @@ body {
   font-size: 30px;
 }
 
-.dados {
+.dadosData {
   font-family: Montserrat;
   font-size: 30px;
   font-weight: bold;
@@ -248,11 +246,11 @@ body {
   margin-top: 101px;
 }
 
-.dado1 {
+.dado1Data {
   padding-bottom: 55px;
 }
 
-.salvar {
+.salvarData {
   background-color: #bfc297;
   border: 1px solid #85904e;
   border-radius: 50px;
@@ -261,15 +259,15 @@ body {
   text-align: center;
   box-shadow: 0px 2px 5px#85904E;
   cursor: pointer;
-  margin-left: 605px;
-  margin-top: 175px;
+  margin-left: 626px;
+  margin-top: 8px;
   color: #3a2718;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.imguser3 {
+.imguser3Data {
   width: 200px;
   height: 200px;
   position: absolute;

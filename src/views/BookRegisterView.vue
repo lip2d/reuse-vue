@@ -1,29 +1,22 @@
 <template>
   <body>
-    <div class="profile">
-      <div class="imguser">
-        <img class="ico" />
+    <div class="profileBookRegister">
+      <div class="imguserBookRegister">
+        <img class="icoBookRegister" />
       </div>
-      <ul class="au1">
-        <li class="au2">Livros</li>
-        <li class="au3">Dê aos seus livros um recomeço</li>
-        <div class="linha1"></div>
-        <div class="linha2"></div>
-        <div class="linha3"></div>
+      <ul class="au1BookRegister">
+        <li class="au2BookRegister">Livros</li>
+        <li class="au3BookRegister">Dê aos seus livros um recomeço</li>
+        <div class="linha1BookRegister"></div>
+        <div class="linha2BookRegister"></div>
+        <div class="linha3BookRegister"></div>
       </ul>
       <div>
-        <div class="imguser3">
-          <div class="aaa2">
-            <img class="ico2" :src="imagem" alt="" />
+        <div class="imguser3BookRegister">
+          <div class="aaa2BookRegister">
+            <img class="ico2BookRegister" :src="imagem" alt="" />
           </div>
-          <input
-            type="file"
-            name="arquivos"
-            class="oo2"
-            accept="image/png, image/jpeg"
-            multiple
-          />
-          <article class="ttt">
+          <article class="tttBookRegister">
             Tamanho da imagem: 1MB <br />
             Extensão de arquivo: JPEG, PNG
             <input v-model="imagem" />
@@ -42,30 +35,35 @@
         <li class="lo10" @click="toLogin">Sair</li>
       </ul>
     </div>
-    <form class="form">
-      <input v-model="nomeLivro" class="input1" />
+    <form class="formBookRegister">
+      <input v-model="nomeLivro" class="input1BookRegister" />
       <br />
-      <input v-model="autor" class="input1" />
+      <input v-model="autor" class="input1BookRegister" />
       <br />
-      <input v-model="editora" class="input1" />
+      <input v-model="editora" class="input1BookRegister" />
       <br />
-      <input v-model="numpag" class="input1" />
+      <input v-model="numpag" class="input1BookRegister" />
       <br />
-      <input v-model="descricao" class="input1" />
-      <select v-model="condicao" class="input1" name="condicao" id="condicao">
+      <input v-model="descricao" class="input1BookRegister" />
+      <select
+        v-model="condicao"
+        class="input1BookRegister condicaolivro"
+        name="condicao"
+        id="condicao"
+      >
         <option value="Estado Bom">Estado bom</option>
-        <option value="Estadp Mediano">Estado mediano</option>
+        <option value="Estado Mediano">Estado mediano</option>
         <option value="Estado Ruim">Estado ruim</option>
       </select>
     </form>
-    <ul class="dados">
-      <li class="dado1">Nome do Livro:</li>
-      <li class="dado1">Autor:</li>
-      <li class="dado1">Editora:</li>
-      <li class="dado1">Número de páginas:</li>
-      <li class="dado1">Sinopse:</li>
-      <li class="dado1">Condição Livro:</li>
-      <li class="salvar" @click="adicionarlivro">Salvar</li>
+    <ul class="dadosBookRegister">
+      <li class="dado1BookRegister">Nome do Livro:</li>
+      <li class="dado1BookRegister">Autor:</li>
+      <li class="dado1BookRegister">Editora:</li>
+      <li class="dado1BookRegister">Número de páginas:</li>
+      <li class="dado1BookRegister">Sinopse:</li>
+      <li class="dado1BookRegister">Condição Livro:</li>
+      <li class="salvarBookRegister" @click="adicionarlivro">Salvar</li>
     </ul>
   </body>
 </template>
@@ -136,11 +134,11 @@ body {
   background-color: #fdf7e6;
 }
 
-.profile {
+.profileBookRegister {
   position: relative;
 }
 
-.imguser {
+.imguserBookRegister {
   margin-top: 9%;
   margin-left: 5%;
   border-radius: 100%;
@@ -150,14 +148,14 @@ body {
   position: absolute;
 }
 
-.ico {
+.icoBookRegister {
   width: 120px;
   height: 120px;
   margin-top: 35px;
   margin-left: 40px;
 }
 
-.au1 {
+.au1BookRegister {
   font-family: Montserrat;
   padding-top: 11%;
   padding-left: 20%;
@@ -165,20 +163,20 @@ body {
   color: #3a2718;
 }
 
-.au2 {
+.au2BookRegister {
   font-size: 45px;
   color: #3a2718;
   font-weight: bold;
 }
 
-.au3 {
+.au3BookRegister {
   font-size: 40px;
   padding-top: 2%;
   color: #3a2718;
   font-weight: bold;
 }
 
-.linha1 {
+.linha1BookRegister {
   width: 77%;
   height: 1px;
   background-color: #85904e;
@@ -186,7 +184,7 @@ body {
   position: absolute;
 }
 
-.linha2 {
+.linha2BookRegister {
   width: 1px;
   height: 620px;
   background-color: #85904e;
@@ -194,7 +192,7 @@ body {
   position: absolute;
 }
 
-.linha3 {
+.linha3BookRegister {
   width: 1px;
   height: 620px;
   background-color: #85904e;
@@ -203,13 +201,13 @@ body {
   margin-left: 950px;
 }
 
-.form {
+.formBookRegister {
   margin-left: 200px;
   margin-top: 50px;
   position: absolute;
 }
 
-.input1 {
+.input1BookRegister {
   background-color: #fff9e8;
   border: 1px solid #9e6942;
   border-radius: 50px;
@@ -218,26 +216,30 @@ body {
   font-family: "Montserrat";
   box-shadow: 0px 2px 5px#9E6942;
   color: #85904e;
-  margin-left: 320px;
+  margin-left: 640px;
   margin-bottom: 30px;
-  padding-left: 2%;
+  padding-left: 1%;
   font-size: 25px;
 }
 
-.dados {
+.condicaolivro {
+  width: 420px;
+}
+
+.dadosBookRegister {
   font-family: Montserrat;
   font-size: 30px;
   font-weight: bold;
   margin-left: 440px;
   list-style: none;
-  margin-top: 90px;
+  margin-top: 95px;
 }
 
-.dado1 {
-  padding-bottom: 50px;
+.dado1BookRegister {
+  padding-bottom: 55px;
 }
 
-.salvar {
+.salvarBookRegister {
   background-color: #bfc297;
   border: 1px solid #85904e;
   border-radius: 50px;
@@ -246,12 +248,15 @@ body {
   text-align: center;
   box-shadow: 0px 2px 5px#85904E;
   cursor: pointer;
-  margin-left: 605px;
-  margin-top: 30px;
+  margin-left: 610px;
+  margin-top: 15px;
   color: #3a2718;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.imguser3 {
+.imguser3BookRegister {
   width: 200px;
   height: 200px;
   position: absolute;
@@ -259,17 +264,17 @@ body {
   margin-left: 1450px;
 }
 
-.ico2 {
-  width: 120px;
-  height: 120px;
-  margin-top: 35px;
-  margin-left: 105px;
+.ico2BookRegister {
+  width: 200px;
+  height: 300px;
+  margin-top: 25px;
+  margin-left: 70px;
 }
 
-.ttt {
+.tttBookRegister {
   font-size: 32px;
   font-family: Montserrat;
-  margin-top: 100px;
+  margin-top: 50px;
   width: 360px;
 }
 </style>

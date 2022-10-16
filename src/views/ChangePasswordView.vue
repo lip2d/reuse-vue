@@ -154,7 +154,6 @@ body {
   position: absolute;
 }
 
-
 .input1 {
   background-color: #fff9e8;
   border: 1px solid #9e6942;
@@ -175,11 +174,11 @@ body {
   font-weight: bold;
   margin-left: 440px;
   list-style: none;
-  margin-top: 90px;
+  margin-top: 100px;
 }
 
 .dado1 {
-  padding-bottom: 50px;
+  padding-bottom: 55px;
 }
 
 .salvar {
@@ -191,9 +190,11 @@ body {
   text-align: center;
   box-shadow: 0px 2px 5px#85904E;
   cursor: pointer;
-  margin-left: 605px;
+  margin-left: 626px;
   margin-top: 30px;
   color: #3a2718;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
 </style>
