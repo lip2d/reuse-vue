@@ -1,7 +1,7 @@
 <template>
   <body>
     <div class="profileData">
-      <div class="imguserData"></div>
+      <img class="imguserData" :src="imagemPerfil"/>
       <ul class="au1Data">
         <li class="au2Data">Meu Perfil</li>
         <li class="au3Data">Gerenciar e proteger sua conta</li>
@@ -9,6 +9,17 @@
         <div class="linha2Data"></div>
         <div class="linha3Data"></div>
       </ul>
+      <div>
+        <div class="imguser3Profile">
+          <div class="aaa2Profile">
+            <img class="ico2Profile" :src="imagemPerfil"/>
+          </div>
+          <article class="tttBookRegister">
+            Adicionar foto de perfil <br />
+            <input v-model="imagemPerfil" />
+          </article>
+        </div>
+      </div>
       <div>
         <div class="imguser3Data"></div>
       </div>
@@ -63,6 +74,7 @@ export default {
       endereço: "",
       cep: "",
       uid: "",
+      imagemPerfil: "",
       temPerfil: false,
     };
   },
@@ -82,6 +94,7 @@ export default {
       this.nascimento = perfil.data().nascimento;
       this.endereço = perfil.data().endereço;
       this.cep = perfil.data().cep;
+      this.imagemPerfil = perfil.data().imagemPerfil;
     }
     console.log(this.nome);
     console.log(this.uid);
@@ -97,6 +110,7 @@ export default {
           nascimento: this.nascimento,
           endereço: this.endereço,
           cep: this.cep,
+          imagemPerfil: this.imagemPerfil,
         });
       } else {
         await fb.profileCollection.add({
@@ -107,6 +121,7 @@ export default {
           nascimento: this.nascimento,
           endereço: this.endereço,
           cep: this.cep,
+          imagemPerfil: this.imagemPerfil,
         });
       }
     },
@@ -273,5 +288,27 @@ body {
   position: absolute;
   margin-top: 100px;
   margin-left: 1450px;
+}
+
+.imguser3Profile {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  margin-top: 100px;
+  margin-left: 1450px;
+}
+
+.ico2Profile {
+  width: 200px;
+  height: 200px;
+  margin-top: 25px;
+  margin-left: 70px;
+}
+
+.tttProfile {
+  font-size: 32px;
+  font-family: Montserrat;
+  margin-top: 50px;
+  width: 360px;
 }
 </style>

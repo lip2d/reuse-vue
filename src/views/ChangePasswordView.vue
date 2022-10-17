@@ -45,6 +45,8 @@ import { auth } from "../plugins/firebase";
 
 export default {
   methods: {
+    
+
     toBookRegister() {
       this.$router.push({ path: "/bookregister" });
     },
