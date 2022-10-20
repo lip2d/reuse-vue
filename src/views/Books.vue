@@ -4,6 +4,8 @@
     <div class="livro">
       <img :src="product.imagem" alt="" style="width: 100%; height: 100%" />
     </div>
+    <img src="../assets/images/heart.png" class="hearticon" alt="" />
+
     <article>
       <ul class="descLivro">
         <li class="itemDescLivro">Nome: {{ product.nomeLivro }}</li>
@@ -97,5 +99,12 @@ export default {
   font-family: "Montserrat";
   width: 85%;
   margin: -40px auto;
+}
+
+.hearticon {
+  width: 80px;
+  position: absolute;
+  margin-left: 1650px;
+  top: 550px;
 }
 </style>

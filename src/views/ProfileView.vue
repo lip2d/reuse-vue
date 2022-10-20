@@ -1,39 +1,16 @@
 <template>
   <body>
-    <div class="profileData">
-      <img class="imguserData" :src="imagemPerfil"/>
-      <ul class="au1Data">
-        <li class="au2Data">Meu Perfil</li>
-        <li class="au3Data">Gerenciar e proteger sua conta</li>
-        <div class="linha1Data"></div>
-        <div class="linha2Data"></div>
-        <div class="linha3Data"></div>
-      </ul>
-      <div>
-        <div class="imguser3Profile">
-          <div class="aaa2Profile">
-            <img class="ico2Profile" :src="imagemPerfil"/>
-          </div>
-          <article class="tttBookRegister">
-            Adicionar foto de perfil <br />
-            <input v-model="imagemPerfil" />
-          </article>
+    <div>
+      <div class="imguser3Profile">
+        <div class="aaa2Profile">
+          <img class="ico2Profile" :src="imagem" alt="" />
         </div>
+        <article class="tttProfile">
+          Tamanho da imagem: 1MB <br />
+          Extensão de arquivo: JPEG, PNG
+          <input v-model="imagem" />
+        </article>
       </div>
-      <div>
-        <div class="imguser3Data"></div>
-      </div>
-      <ul class="lo1">
-        <li class="lo2">{{ nome }}</li>
-        <li class="lo3">Minha Conta</li>
-        <li class="lo4 dd1" @click="toProfile">Dados</li>
-        <li class="lo5"><a @click="toChangePassword">Trocar Senha</a></li>
-        <li class="lo6">Livros</li>
-        <li class="lo7"><a @click="toBookRegister">Cadastrar</a></li>
-        <li class="lo8" @click="toMyBooks">Meus Livros</li>
-        <li class="lo9">Favoritos</li>
-        <li class="lo10" @click="toLogin">Sair</li>
-      </ul>
     </div>
     <form class="formData">
       <input class="inputData" v-model="nome" />
@@ -125,25 +102,6 @@ export default {
         });
       }
     },
-    toBookRegister() {
-      this.$router.push({ path: "/bookregister" });
-    },
-    toChangePassword() {
-      this.$router.push({ path: "/changepassword" });
-    },
-    toHomePage() {
-      this.$router.push({ path: "/home" });
-    },
-    async toLogin() {
-      await fb.auth.signOut();
-      this.$router.push({ path: "/login" });
-    },
-    toProfile() {
-      this.$router.push({ path: "/profile" });
-    },
-    toMyBooks() {
-      this.$router.push({ name: "mybooks" });
-    },
   },
 };
 </script>
@@ -161,79 +119,9 @@ export default {
 body {
   background-color: #fdf7e6;
 }
-
-.profileData {
-  position: relative;
-}
-
-.imguserData {
-  margin-top: 9%;
-  margin-left: 4%;
-  border-radius: 100%;
-  width: 200px;
-  height: 200px;
-  background-color: #ceb195;
-  position: absolute;
-}
-
-.au1Data {
-  font-family: Montserrat;
-  padding-top: 11%;
-  padding-left: 20%;
-  list-style: none;
-  color: #3a2718;
-}
-
-.au2Data {
-  font-size: 45px;
-  color: #3a2718;
-  font-weight: bold;
-}
-
-.au3Data {
-  font-size: 40px;
-  padding-top: 2%;
-  color: #3a2718;
-  font-weight: bold;
-}
-
-.lo1Data {
-  font-family: Montserrat;
-  color: #3a2718;
-  margin-top: 2%;
-  margin-left: 5%;
-  font-weight: bold;
-  font-size: 30px;
-}
-
-.linha1Data {
-  width: 77%;
-  height: 1px;
-  background-color: #85904e;
-  margin-top: 50px;
-  position: absolute;
-}
-
-.linha2Data {
-  width: 1px;
-  height: 620px;
-  background-color: #85904e;
-  margin-top: 100px;
-  position: absolute;
-}
-
-.linha3Data {
-  width: 1px;
-  height: 620px;
-  background-color: #85904e;
-  margin-top: 100px;
-  position: absolute;
-  margin-left: 950px;
-}
-
 .formData {
+  top: 306px;
   margin-left: 200px;
-  margin-top: 50px;
   position: absolute;
 }
 
@@ -258,7 +146,7 @@ body {
   font-weight: bold;
   margin-left: 440px;
   list-style: none;
-  margin-top: 101px;
+  margin-top: 110px;
 }
 
 .dado1Data {
@@ -282,19 +170,10 @@ body {
   justify-content: center;
 }
 
-.imguser3Data {
-  width: 200px;
-  height: 200px;
-  position: absolute;
-  margin-top: 100px;
-  margin-left: 1450px;
-}
-
 .imguser3Profile {
   width: 200px;
   height: 200px;
   position: absolute;
-  margin-top: 100px;
   margin-left: 1450px;
 }
 

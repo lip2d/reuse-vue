@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import DefaultLayout from '../layouts/DefaultLayout.vue'
 import BlankLayout from '../layouts/BlankLayout.vue'
+import PerfilLayout from '../layouts/PerfilLayout.vue'
+
 import { auth } from "../plugins/firebase"
 
 Vue.use(VueRouter)
@@ -10,16 +12,8 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: "",
-    component: DefaultLayout,
+    component: PerfilLayout,
     children: [
-      {
-        path: '/home',
-        name: 'home',
-        meta: {
-          requiresAuth: false
-        },
-        component: HomeView
-      },
       {
         path: '/profile',
         name: 'profile',
@@ -45,20 +39,35 @@ const routes = [
         component: () => import('../views/BookRegisterView.vue')
       },
       {
-        path: '/book',
-        name: 'book',
-        meta: {
-          requiresAuth: false
-        },
-        component: () => import('../views/Books.vue')
-      },
-      {
         path: '/mybooks',
         name: 'mybooks',
         meta: {
           requiresAuth: true
         },
         component: () => import('../views/MyBooks.vue')
+      },
+    ]
+  },
+  {
+    path: "",
+    component: DefaultLayout,
+    children: [
+      {
+        path: '/home',
+        name: 'home',
+        meta: {
+          requiresAuth: false
+        },
+        component: HomeView
+      },
+      
+      {
+        path: '/book',
+        name: 'book',
+        meta: {
+          requiresAuth: false
+        },
+        component: () => import('../views/Books.vue')
       },
     ],
   },

@@ -1,28 +1,5 @@
 <template>
   <body>
-    <div class="profile">
-      <div class="imguser">
-        <img class="ico" src="ico.png" alt="" />
-      </div>
-      <ul class="au1">
-        <li class="au2">Meu Perfil</li>
-        <li class="au3">Gerenciar e proteger sua conta</li>
-        <div class="linha1"></div>
-        <div class="linha2"></div>
-        <div class="linha3"></div>
-      </ul>
-      <ul class="lo1">
-        <li class="lo2">Nome</li>
-        <li class="lo3">Minha Conta</li>
-        <li class="lo4" @click="toProfile">Dados</li>
-        <li class="lo5 dd1" @click="toChangePassword">Trocar Senha</li>
-        <li class="lo6">Livros</li>
-        <li class="lo7" @click="toBookRegister">Cadastrar</li>
-        <li class="lo8" @click="toMyBooks">Meus Livros</li>
-        <li class="lo9">Favoritos</li>
-        <li class="lo10" @click="toLogin">Sair</li>
-      </ul>
-    </div>
     <form class="form">
       <input class="input1" type="password" placeholder="" />
       <br />
@@ -45,8 +22,6 @@ import { auth } from "../plugins/firebase";
 
 export default {
   methods: {
-    
-
     toBookRegister() {
       this.$router.push({ path: "/bookregister" });
     },
