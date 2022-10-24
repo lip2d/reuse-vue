@@ -1,13 +1,10 @@
 <template>
-  <div style="padding: 150px 0">
-    <div
-      class="my-livro"
-      v-for="(livro, index) in myBooks"
+  <div class="meuslivros">
+    <div v-for="(livro, index) in myBooks"
       :key="index"
-      @click="removeLivro(livro.nomeLivro)"
-    >
-      {{ livro.nomeLivro }}
-    </div>
+      @click="removeLivro(livro.nomeLivro)" class="mybooks">{{ livro.nomeLivro }}</div>
+    <div><img src="../assets/images/edit-book.png" class="editbook" alt=""></div>
+    <div><img src="../assets/images/lixeira.png" class="lixeira" alt=""></div>
   </div>
 </template>
 
@@ -49,4 +46,33 @@ export default {
 </script>
 
 <style>
+.meuslivros{
+  padding: 130px 0;
+  display: flex;
+  background-color: aqua;
+}
+
+.mybooks{
+  width: 250px;
+  height: 330px;
+  background-color: red;
+  margin-left: 500px;
+  border-radius: 10px;
+
+}
+
+.editbook{
+  width: 40px;
+  height: 40px;
+  margin-left: 570px;
+  margin-top: 20px;
+  position: absolute;
+}
+
+.lixeira{
+  width: 40px;
+  height: 40px;
+  margin-left: 640px;
+  margin-top: 20px;
+}
 </style>

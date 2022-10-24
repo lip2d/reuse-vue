@@ -6,9 +6,9 @@
           <img class="ico2Profile" :src="imagem" alt="" />
         </div>
         <article class="tttProfile">
-          Tamanho da imagem: 1MB <br />
-          Extensão de arquivo: JPEG, PNG
-          <input v-model="imagem" />
+          <strong>Alterar foto de perfil</strong> <br />
+          Selecione uma imagem
+          <input class="barpic" v-model="imagem" />
         </article>
       </div>
     </div>
@@ -120,7 +120,7 @@ body {
   background-color: #fdf7e6;
 }
 .formData {
-  top: 306px;
+  top: 305px;
   margin-left: 200px;
   position: absolute;
 }
@@ -180,14 +180,18 @@ body {
 .ico2Profile {
   width: 200px;
   height: 200px;
-  margin-top: 25px;
+  margin-top: 1px;
   margin-left: 70px;
 }
 
 .tttProfile {
-  font-size: 32px;
+  font-size: 25px;
   font-family: Montserrat;
-  margin-top: 50px;
   width: 360px;
+  text-align: center;
+}
+
+.barpic{
+  margin-top: 25px;
 }
 </style>

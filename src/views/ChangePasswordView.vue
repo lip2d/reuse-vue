@@ -126,8 +126,8 @@ body {
 }
 
 .form {
+  top: 258px;
   margin-left: 200px;
-  margin-top: 50px;
   position: absolute;
 }
 
@@ -135,14 +135,15 @@ body {
   background-color: #fff9e8;
   border: 1px solid #9e6942;
   border-radius: 50px;
-  width: 400px;
+  width: 500px;
   height: 53px;
   font-family: "Montserrat";
   box-shadow: 0px 2px 5px#9E6942;
   color: #85904e;
+  margin-left: 550px;
   margin-bottom: 30px;
   padding-left: 2%;
-  font-size: 25px;
+  font-size: 30px;
 }
 
 .dados {
@@ -151,7 +152,7 @@ body {
   font-weight: bold;
   margin-left: 440px;
   list-style: none;
-  margin-top: 100px;
+  margin-top: 110px;
 }
 
 .dado1 {
@@ -168,7 +169,7 @@ body {
   box-shadow: 0px 2px 5px#85904E;
   cursor: pointer;
   margin-left: 626px;
-  margin-top: 30px;
+  margin-top: 8px;
   color: #3a2718;
   display: flex;
   align-items: center;

@@ -2,7 +2,7 @@
   <div>
     <div class="livrosombra"></div>
     <div class="livro">
-      <img :src="product.imagem" alt="" style="width: 100%; height: 100%" />
+      <img :src="product.imagem" alt="" style="width: 100%; height: 100%; border-radius: 10px;" />
     </div>
     <img src="../assets/images/heart.png" class="hearticon" alt="" />
 
@@ -65,7 +65,6 @@ export default {
 
 .descLivro {
   margin-left: 600px;
-  font-size: 40px;
   font-family: "Montserrat";
   list-style: none;
   margin-top: -220px;
@@ -73,6 +72,7 @@ export default {
 
 .itemDescLivro {
   margin-bottom: 20px;
+  font-size: 35px;
 }
 
 .btnChat {
@@ -85,6 +85,7 @@ export default {
   color: #3a2718;
   background-color: #bfc297;
   font-family: "Montserrat";
+  cursor: pointer;
 }
 
 .line {
@@ -105,6 +106,7 @@ export default {
   width: 80px;
   position: absolute;
   margin-left: 1650px;
-  top: 550px;
+  top: 520px;
+  cursor: pointer;
 }
 </style>

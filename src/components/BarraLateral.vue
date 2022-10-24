@@ -12,14 +12,14 @@
     </div>
     <ul class="lo1">
       <li class="lo2">{{ nome }}</li>
-      <li class="lo2">Minha Conta</li>
-      <li class="lo2" @click="toProfile">Dados</li>
-      <li class="lo2"><a @click="toChangePassword">Trocar Senha</a></li>
-      <li class="lo2">Livros</li>
-      <li class="lo2"><a @click="toBookRegister">Cadastrar</a></li>
-      <li class="lo2" @click="toMyBooks">Meus Livros</li>
-      <li class="lo2">Favoritos</li>
-      <li class="lo2" @click="toLogin">Sair</li>
+      <li class="lo2"><strong>Minha Conta</strong></li>
+      <li class="lo2 lo3" @click="toProfile">Dados</li>
+      <li class="lo2 lo3"><a @click="toChangePassword">Trocar Senha</a></li>
+      <li class="lo2"><strong>Livros</strong></li>
+      <li class="lo2 lo3"><a @click="toBookRegister">Cadastrar</a></li>
+      <li class="lo2 lo3" @click="toMyBooks">Meus Livros</li>
+      <li class="lo2 lo3">Favoritos</li>
+      <li class="lo2 lo3" @click="toLogin"><strong>Sair</strong></li>
     </ul>
   </div>
 </template>
@@ -124,6 +124,7 @@ body {
   margin-left: 5%;
   font-weight: bold;
   font-size: 30px;
+  cursor: pointer;
 }
 
 .linha1Data {
@@ -190,5 +191,9 @@ body {
 
 .lo2 {
   margin-bottom: 30px;
+}
+
+.lo3{
+  cursor: pointer;
 }
 </style>
