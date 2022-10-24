@@ -12,7 +12,7 @@
           <img
             :src="livro.imagem"
             alt="Livro Imagem"
-            style="width: 100%; height: 100%"
+            style="width: 100%; height: 100%; border-radius: 10px;"
           />
           <span class="nome-livro">{{ livro.nomeLivro }}</span>
         </div>
@@ -158,7 +158,6 @@ body {
   margin: 0 50px;
   width: 350px;
   height: 450px;
-  background-color: #393f1b;
 }
 
 .nome-livro {

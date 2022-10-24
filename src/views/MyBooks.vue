@@ -2,15 +2,23 @@
   <div class="meuslivros">
     <div v-for="(livro, index) in myBooks"
       :key="index"
-      @click="removeLivro(livro.nomeLivro)" class="mybooks">{{ livro.nomeLivro }}</div>
-    <div><img src="../assets/images/edit-book.png" class="editbook" alt=""></div>
-    <div><img src="../assets/images/lixeira.png" class="lixeira" alt=""></div>
+      @click="removeLivro(livro.nomeLivro)" class="mybooks">
+      <img
+            :src="livro.imagem"
+            alt="Livro Imagem"
+            style="width: 100%; height: 100%; border-radius: 10px;"
+          />   
+          <div class="icons">
+      <div><img src="../assets/images/edit-book.png" class="editbook" alt=""></div>
+      <div><img src="../assets/images/lixeira.png" class="lixeira" alt=""></div>
+    </div>
   </div>
+        </div>
+ 
 </template>
 
 <script>
 import { auth, tasksCollection, db } from "../plugins/firebase";
-
 export default {
   data() {
     return {
@@ -49,30 +57,39 @@ export default {
 .meuslivros{
   padding: 130px 0;
   display: flex;
-  background-color: aqua;
+  max-width: 950px;
+  margin-left: 385px;
+  height: 410px;
+  margin-top: 50px;
+  overflow-x: scroll;
 }
 
 .mybooks{
-  width: 250px;
-  height: 330px;
+  min-width: 250px;
+  min-height: 330px;
   background-color: red;
-  margin-left: 500px;
   border-radius: 10px;
-
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .editbook{
   width: 40px;
   height: 40px;
-  margin-left: 570px;
   margin-top: 20px;
-  position: absolute;
 }
 
 .lixeira{
   width: 40px;
   height: 40px;
-  margin-left: 640px;
   margin-top: 20px;
+}
+
+.icons{
+  bottom: 100px;
+  width: 300px;
+  display: flex;
+  gap: 30px;
+  margin-left: 75px;
 }
 </style>
