@@ -1,24 +1,47 @@
 <template>
-  <div class="meuslivros">
-    <div v-for="(livro, index) in myBooks"
-      :key="index"
-      @click="removeLivro(livro.nomeLivro)" class="mybooks">
-      <img
-            :src="livro.imagem"
-            alt="Livro Imagem"
-            style="width: 100%; height: 100%; border-radius: 10px;"
-          />   
-          <div class="icons">
-      <div><img src="../assets/images/edit-book.png" class="editbook" alt=""></div>
-      <div><img src="../assets/images/lixeira.png" class="lixeira" alt=""></div>
+  <div style="display: flex;">
+    <div class="meuslivros">
+      <div v-for="(livro, index) in myBooks"
+        :key="index"
+        class="mybooks">
+        <img
+              :src="livro.imagem"
+              alt="Livro Imagem"
+              style="width: 100%; height: 100%; border-radius: 10px;"
+            />
+            <div class="icons">
+        <div><img src="../assets/images/edit-book.png" class="editbook" alt=""></div>
+        <div><img src="../assets/images/lixeira.png" @click="deleteLivro(livro.id)" class="lixeira" alt=""></div>
+      </div>
+    </div>
+    </div>
+    <div>
+    <ul class="dadosmeuslivros">
+      <li class="d">Nome do Livro:</li>
+      <input>
+      <li class="d">Autor:</li>
+      <input>
+      <li class="d">Editora:</li>
+      <input type="text">
+      <li class="d">Número de páginas:</li>
+      <input type="text">
+      <li class="d">Sinopse:</li>
+      <input type="text">
+      <li class="d">Condição Livro:</li>
+      <input type="text">
+      <li class="d">Disponibilidade Livro</li>
+      <select name="" id=""><option value="">Disponível</option>
+      <option value="">Indisponível</option></select>
+      <li class="d">Salvar</li>
+    </ul>
     </div>
   </div>
-        </div>
  
 </template>
 
 <script>
-import { auth, tasksCollection, db } from "../plugins/firebase";
+import { auth, tasksCollection} from "../plugins/firebase";
+import * as fb from "@/plugins/firebase";
 export default {
   data() {
     return {
@@ -28,27 +51,34 @@ export default {
   mounted() {
     let user = auth.currentUser.uid;
     this.getMyBooks(user);
+    console.log(this.myBooks)
   },
   methods: {
     getMyBooks(uid) {
+      this.myBooks = []
       tasksCollection
         .where("uid", "==", uid)
         .get()
         .then((livros) => {
           for (const livro of livros.docs) {
-            this.myBooks.push(livro.data());
+            this.myBooks.push({
+              id: livro.id,
+              nomeLivro: livro.data().nomeLivro,
+              autor: livro.data().autor,
+              editora: livro.data().editora,
+              numpag: livro.data().numpag,
+              descricao: livro.data().descricao,
+              imagem: livro.data().imagem,
+              condicao: livro.data().condicao,
+            });
           }
         });
     },
-    removeLivro(nome) {
-      let batch = db.batch();
-      tasksCollection
-        .where("nomeLivro", "==", nome)
-        .get()
-        .then((livros) => {
-          batch.delete(livros.docs[0]);
-        });
-    },
+    async deleteLivro(livro){
+      console.log(livro)
+      await fb.tasksCollection.doc(livro).delete()
+      this.getMyBooks(auth.currentUser.uid)
+    }
   },
 };
 </script>
@@ -66,7 +96,9 @@ export default {
 
 .mybooks{
   min-width: 250px;
+  max-width: 250px;
   min-height: 330px;
+  max-height: 330px;
   background-color: red;
   border-radius: 10px;
   margin-left: 20px;
@@ -77,9 +109,11 @@ export default {
   width: 40px;
   height: 40px;
   margin-top: 20px;
+  cursor: pointer;
 }
 
 .lixeira{
+  cursor: pointer;
   width: 40px;
   height: 40px;
   margin-top: 20px;
@@ -91,5 +125,11 @@ export default {
   display: flex;
   gap: 30px;
   margin-left: 75px;
+}
+
+.dadosmeuslivros{
+  list-style: none;
+  margin-top: 80px;
+  margin-left: 100px;
 }
 </style>

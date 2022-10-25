@@ -3,12 +3,12 @@
     <div>
       <div class="imguser3Profile">
         <div class="aaa2Profile">
-          <img class="ico2Profile" :src="imagem" alt="" />
+          <img class="ico2Profile" :src="imagemPerfil" alt="" />
         </div>
         <article class="tttProfile">
           <strong>Alterar foto de perfil</strong> <br />
           Selecione uma imagem
-          <input class="barpic" v-model="imagem" />
+          <input class="barpic" v-model="imagemPerfil" />
         </article>
       </div>
     </div>
@@ -56,25 +56,9 @@ export default {
     };
   },
 
-  async mounted() {
+  mounted() {
     this.uid = fb.auth.currentUser.uid;
-    const userProfile = await fb.profileCollection
-      .where("uid", "==", this.uid)
-      .get();
-    if (userProfile.docs.length > 0) {
-      this.temPerfil = true;
-      const perfil = userProfile.docs[0];
-      this.profileId = perfil.id;
-      this.nome = perfil.data().nome;
-      this.email = perfil.data().email;
-      this.telefone = perfil.data().telefone;
-      this.nascimento = perfil.data().nascimento;
-      this.endereço = perfil.data().endereço;
-      this.cep = perfil.data().cep;
-      this.imagemPerfil = perfil.data().imagemPerfil;
-    }
-    console.log(this.nome);
-    console.log(this.uid);
+    this.getUsuario()  
   },
 
   methods: {
@@ -88,7 +72,8 @@ export default {
           endereço: this.endereço,
           cep: this.cep,
           imagemPerfil: this.imagemPerfil,
-        });
+        })
+        this.getUsuario()
       } else {
         await fb.profileCollection.add({
           uid: this.uid,
@@ -99,9 +84,29 @@ export default {
           endereço: this.endereço,
           cep: this.cep,
           imagemPerfil: this.imagemPerfil,
-        });
+        })
+        this.getUsuario()
       }
     },
+    async getUsuario(){
+      const userProfile = await fb.profileCollection
+      .where("uid", "==", this.uid)
+      .get();
+      if (userProfile.docs.length > 0) {
+        this.temPerfil = true;
+        const perfil = userProfile.docs[0];
+        this.profileId = perfil.id;
+        this.nome = perfil.data().nome;
+        this.email = perfil.data().email;
+        this.telefone = perfil.data().telefone;
+        this.nascimento = perfil.data().nascimento;
+        this.endereço = perfil.data().endereço;
+        this.cep = perfil.data().cep;
+        this.imagemPerfil = perfil.data().imagemPerfil;
+      }
+      console.log(this.nome);
+      console.log(this.uid);
+    }
   },
 };
 </script>
