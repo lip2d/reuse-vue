@@ -12,7 +12,7 @@
           <img
             :src="livro.imagem"
             alt="Livro Imagem"
-            style="width: 100%; height: 100%; border-radius: 10px;"
+            style="width: 100%; height: 100%; border-radius: 10px"
           />
           <span class="nome-livro">{{ livro.nomeLivro }}</span>
         </div>
@@ -38,7 +38,9 @@ export default {
   methods: {
     ...mapMutations(["SET_PRODUCT"]),
     async getLivros() {
-      const logtasks = await fb.tasksCollection.get();
+      const logtasks = await fb.tasksCollection
+        .where("disponibilidade", "!=", "Indisponível")
+        .get();
       for (const doc of logtasks.docs)
         this.livros.push({
           id: doc.id,

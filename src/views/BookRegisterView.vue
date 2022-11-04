@@ -19,7 +19,7 @@
       <br />
       <input v-model="editora" class="input1BookRegister" />
       <br />
-      <input v-model="numpag" class="input1BookRegister" />
+      <input v-model="numpag" type="number" class="input1BookRegister" />
       <br />
       <input v-model="descricao" class="input1BookRegister" />
       <select
@@ -73,6 +73,7 @@ export default {
         descricao: this.descricao,
         imagem: this.imagem,
         condicao: this.condicao,
+        disponibilidade: "Disponível",
       });
     },
     toBookRegister() {
