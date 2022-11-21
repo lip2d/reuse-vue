@@ -46,6 +46,14 @@ const routes = [
         },
         component: () => import('../views/MyBooks.vue')
       },
+      {
+        path: '/favorites',
+        name: 'favorites',
+        meta: {
+          requiresAuth: true
+        },
+        component: () => import('../views/favorites.vue')
+      },
     ]
   },
   {

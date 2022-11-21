@@ -18,7 +18,7 @@
       <li class="lo2"><strong>Livros</strong></li>
       <li class="lo2 lo3"><a @click="toBookRegister">Cadastrar</a></li>
       <li class="lo2 lo3" @click="toMyBooks">Meus Livros</li>
-      <li class="lo2 lo3">Favoritos</li>
+      <li class="lo2 lo3" @click="toFavorites">Favoritos</li>
       <li class="lo2 lo3" @click="toLogin"><strong>Sair</strong></li>
     </ul>
   </div>
@@ -64,6 +64,9 @@ export default {
     toMyBooks() {
       this.$router.push({ name: "mybooks" });
     },
+    toFavorites() {
+      this.$router.push({ name: "favorites"});
+    }
   },
 };
 </script>

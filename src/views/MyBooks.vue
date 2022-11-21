@@ -48,7 +48,7 @@
         <li class="d">Sinopse:</li>
         <input class="inputEditBook" v-model="livroEditavel.descricao" />
 
-        <li class="d">Condição Livro</li>
+        <li class="d">Condição Livro:</li>
         <select
           class="inputEditBook"
           v-model="livroEditavel.condicao"
@@ -59,7 +59,7 @@
           <option value="Estado Mediano">Estado mediano</option>
           <option value="Estado Ruim">Estado ruim</option>
         </select>
-        <li class="d">Disponibilidade Livro</li>
+        <li class="d">Disponibilidade Livro:</li>
 
         <select
           v-model="livroEditavel.disponibilidade"
@@ -70,7 +70,7 @@
           <option value="Disponível">Disponível</option>
           <option value="Indisponível">Indisponível</option>
         </select>
-        <li class="d" @click="editarLivro(livroEditavel.id)">Salvar</li>
+        <li class="d savebtn" @click="editarLivro(livroEditavel.id)">Salvar</li>
       </ul>
     </div>
   </div>
@@ -139,6 +139,7 @@ export default {
 }
 
 .inputEditBook {
+  border-radius: 5px;
 }
 
 .mybooks {
@@ -181,5 +182,17 @@ export default {
   position: absolute;
   right: 0;
   margin-right: 150px;
+}
+
+.savebtn{
+  text-align: center;
+  margin-top: 20px;
+  width: 100px;
+  height: 40px;
+  background-color: #bfc297;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center
 }
 </style>
