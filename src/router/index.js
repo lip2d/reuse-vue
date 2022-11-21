@@ -68,7 +68,7 @@ const routes = [
         },
         component: HomeView
       },
-      
+
       {
         path: '/book',
         name: 'book',
@@ -76,6 +76,15 @@ const routes = [
           requiresAuth: false
         },
         component: () => import('../views/Books.vue')
+      },
+      {
+        path: '/results/:busca',
+        name: 'results',
+        props: true,
+        meta: {
+          requiresAuth: false
+        },
+        component: () => import('../views/resultadoPesquisa.vue')
       },
     ],
   },

@@ -184,7 +184,7 @@ export default {
   margin-right: 150px;
 }
 
-.savebtn{
+.savebtn {
   text-align: center;
   margin-top: 20px;
   width: 100px;
@@ -193,6 +193,6 @@ export default {
   border-radius: 5px;
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
 }
 </style>

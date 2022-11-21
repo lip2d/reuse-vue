@@ -1,43 +1,64 @@
 <template>
-      <div class="container">
-        <nav class="header">
-            <img src="../assets/images/logo.png" class="img" alt="imagem">
+  <div class="container">
+    <nav class="header">
+      <img src="../assets/images/logo.png" class="img" alt="imagem" />
 
-            <input class="pesquisa" placeholder="Busque aqui" />
-            <ul class="eu1">
-                <li @click="toHomePage">HOME</li>
-                <li class="li2">CHAT</li>
-                <li>ATENDIMENTO</li>
-            </ul>
-            <div>
-                <img src="../assets/images/user-icon.png" class="usericon" alt="user" @click="toProfile">
-            </div>
-        </nav>
-    </div>
+      <input
+        class="pesquisa"
+        placeholder="Busque aqui"
+        v-model="pesquisa"
+        @keyup.enter="buscar"
+      />
+      <ul class="eu1">
+        <li @click="toHomePage">HOME</li>
+        <li class="li2">CHAT</li>
+        <li>ATENDIMENTO</li>
+      </ul>
+      <div>
+        <img
+          src="../assets/images/user-icon.png"
+          class="usericon"
+          alt="user"
+          @click="toProfile"
+        />
+      </div>
+    </nav>
+  </div>
 </template>
 
 <script>
 export default {
-    methods: {
-        toProfile() {
-            this.$router.push({ path: "/profile" })
-        },
-        toHomePage() {
-            this.$router.push({ path: "/home" });
-        },
-    }
-}
+  data() {
+    return {
+      pesquisa: "",
+    };
+  },
+  methods: {
+    toProfile() {
+      this.$router.push({ path: "/profile" });
+    },
+    toHomePage() {
+      this.$router.push({ path: "/home" });
+    },
+    buscar() {
+      if (this.pesquisa) {
+        this.$router.push({
+          name: "results",
+          params: { busca: this.pesquisa },
+        });
+      }
+    },
+  },
+};
 </script>
 
 <style>
-
 .usericon {
   width: 40px;
   height: 40px;
   cursor: pointer;
   margin-right: 40px;
 }
-
 
 .eu1 {
   display: flex;
@@ -54,7 +75,6 @@ export default {
   padding-left: 70px;
   padding-right: 70px;
 }
-
 
 .container {
   margin: 0;
@@ -92,5 +112,4 @@ export default {
   margin-top: 23px;
   margin-left: 60px;
 }
-
 </style>
