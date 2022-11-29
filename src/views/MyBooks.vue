@@ -143,8 +143,8 @@ export default {
 }
 
 .mybooks {
-  min-width: 250px;
-  max-width: 250px;
+  min-width: 210px;
+  max-width: 210px;
   min-height: 330px;
   max-height: 330px;
   background-color: red;
@@ -172,7 +172,7 @@ export default {
   width: 300px;
   display: flex;
   gap: 30px;
-  margin-left: 75px;
+  margin-left: 50px;
 }
 
 .dadosmeuslivros {

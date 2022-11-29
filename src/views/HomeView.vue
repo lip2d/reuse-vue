@@ -158,7 +158,7 @@ body {
 .livros {
   position: relative;
   margin: 0 50px;
-  width: 350px;
+  width: 320px;
   height: 450px;
 }
 
@@ -171,9 +171,10 @@ body {
   color: #393f1b;
   text-align: center;
   padding: 5px 30px;
-  font-size: 1.6em;
+  font-size: 25px;
   font-family: "Montserrat";
   font-weight: 700;
   border-radius: 5px;
+  width: 280px;
 }
 </style>

@@ -2,7 +2,11 @@
   <div>
     <div class="livrosombra"></div>
     <div class="livro">
-      <img :src="product.imagem" alt="" style="width: 100%; height: 100%; border-radius: 10px;" />
+      <img
+        :src="product.imagem"
+        alt=""
+        style="width: 100%; height: 100%; border-radius: 10px"
+      />
     </div>
     <img src="../assets/images/heart.png" class="hearticon" alt="" />
 
@@ -44,7 +48,7 @@ export default {
 }
 
 .livrosombra {
-  width: 300px;
+  width: 260px;
   height: 400px;
   background-color: #85904e;
   position: relative;
@@ -54,7 +58,7 @@ export default {
 }
 
 .livro {
-  width: 300px;
+  width: 260;
   height: 400px;
   background-color: black;
   position: absolute;
@@ -64,7 +68,7 @@ export default {
 }
 
 .descLivro {
-  margin-left: 600px;
+  margin-left: 550px;
   font-family: "Montserrat";
   list-style: none;
   margin-top: -220px;
