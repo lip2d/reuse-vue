@@ -20,6 +20,7 @@ const auth = firebase.auth();
 
 const profileCollection = db.collection("profile");
 const tasksCollection = db.collection("livros");
+const favCollection = db.collection("favoritos");
 
 
-export { db, auth, profileCollection, tasksCollection };
+export { db, auth, profileCollection, tasksCollection, favCollection };

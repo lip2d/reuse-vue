@@ -9,15 +9,35 @@
         />
       </div>
     </div>
-</div>
+  </div>
 </template>
 
 <script>
-export default {
+import * as fb from "@/plugins/firebase";
+import { mapState } from "vuex";
 
-}
+export default {
+  mounted() {
+    const uid = fb.auth.currentUser.uid;
+
+    const favoritos = [];
+
+    fb.favCollection
+      .where("owner", "==", uid)
+      .get()
+      .then((docs) => {
+        docs.forEach((element) => {
+          favoritos.push(element.data());
+        });
+        console.log(favoritos);
+      });
+  },
+
+  computed: {
+    ...mapState(["product"]),
+  },
+};
 </script>
 
 <style>
-
 </style>

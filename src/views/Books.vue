@@ -8,7 +8,12 @@
         style="width: 100%; height: 100%; border-radius: 10px"
       />
     </div>
-    <img src="../assets/images/heart.png" class="hearticon" alt="" />
+    <img
+      src="../assets/images/heart.png"
+      class="hearticon"
+      alt=""
+      @click="favoritar"
+    />
 
     <article>
       <ul class="descLivro">
@@ -30,10 +35,41 @@
 
 <script>
 import { mapState } from "vuex";
+import * as fb from "@/plugins/firebase";
 
 export default {
   computed: {
     ...mapState(["product"]),
+  },
+
+  methods: {
+    async favoritar() {
+      const uid = fb.auth.currentUser.uid;
+      const idProduto = this.product.id;
+
+      let favExiste = [];
+
+      const docOwner = await fb.favCollection.where("owner", "==", uid);
+      docOwner
+        .where("idProduto", "==", idProduto)
+        .get()
+        .then((docs) => {
+          docs.forEach((doc) => {
+            favExiste.push(doc.data());
+          });
+        });
+
+      if (favExiste) {
+        favExiste.forEach((doc) => {
+          doc.delete();
+        });
+      } else {
+        await fb.favCollection.add({
+          owner: uid,
+          idProduto,
+        });
+      }
+    },
   },
 };
 </script>
