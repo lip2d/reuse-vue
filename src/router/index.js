@@ -68,7 +68,14 @@ const routes = [
         },
         component: HomeView
       },
-
+      {
+        path: '/atendimento',
+        name: 'atendimento',
+        meta: {
+          requiresAuth: false
+        },
+        component: () => import('../views/atendimento.vue')
+      },
       {
         path: '/book',
         name: 'book',

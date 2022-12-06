@@ -10,9 +10,8 @@
         @keyup.enter="buscar"
       />
       <ul class="eu1">
-        <li @click="toHomePage">HOME</li>
-        <li class="li2">CHAT</li>
-        <li>ATENDIMENTO</li>
+        <li @click="toHomePage" class="li2">HOME</li>
+        <li @click="toAtendimento">SUPORTE</li>
       </ul>
       <div>
         <img
@@ -39,6 +38,9 @@ export default {
     },
     toHomePage() {
       this.$router.push({ path: "/home" });
+    },
+    toAtendimento() {
+      this.$router.push({ path: "/atendimento" });
     },
     buscar() {
       if (this.pesquisa) {
@@ -73,7 +75,6 @@ export default {
 
 .li2 {
   padding-left: 70px;
-  padding-right: 70px;
 }
 
 .container {
