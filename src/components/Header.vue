@@ -5,7 +5,7 @@
 
       <input
         class="pesquisa"
-        placeholder="Busque aqui"
+        placeholder="Pesquise por livro, autor ou editora"
         v-model="pesquisa"
         @keyup.enter="buscar"
       />
